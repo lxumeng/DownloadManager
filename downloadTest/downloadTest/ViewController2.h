@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <AFNetworking/AFNetworking.h>
+
 @interface ViewController2 : UIViewController
+
 @property (weak, nonatomic) IBOutlet UIProgressView *progress;
 
 

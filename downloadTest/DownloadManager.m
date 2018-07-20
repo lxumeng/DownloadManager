@@ -41,7 +41,10 @@
         self.url = url;
         self.fileId = fileId;
         self.progress = progress;
-        self.progress.progress = 0;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.progress.progress = 0;
+        });
+        
         
         //初始化task
         self.task = [self.manager dataTaskWithRequest:self.request uploadProgress:nil downloadProgress:^(NSProgress * _Nonnull downloadProgress) {

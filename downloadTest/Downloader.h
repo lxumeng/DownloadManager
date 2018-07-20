@@ -27,4 +27,5 @@
  @return 管理下载的对象
  */
 + (instancetype)defautManager;
+
 @end

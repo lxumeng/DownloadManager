@@ -14,7 +14,9 @@
     NSString * urlStr;
     NSString * fileId;
 }
+@property (weak, nonatomic) IBOutlet UIProgressView *progress2;
 @property(nonatomic,strong)DownloadManager * manager;
+
 @end
 
 @implementation ViewController2
@@ -23,12 +25,13 @@
 
     self.manager = [[DownloadManager alloc]initWithUrl:[NSURL URLWithString:urlStr] andWithFileId:fileId andWithProgress:self.progress];
 }
-//取消
+//暂停（这个暂停是真正的把任务取消了）
 - (IBAction)supp:(id)sender {
  
     [self.manager cancel];
     
 }
+//删除
 - (IBAction)delete:(id)sender {
     [self.manager removeFile];
 }
@@ -37,12 +40,10 @@
     [super viewDidLoad];
     urlStr = @"https://images.apple.com/media/cn/macbook-pro/2016/b4a9efaa_6fe5_4075_a9d0_8e4592d6146c/films/design/macbook-pro-design-tft-cn-20161026_1536x640h.mp4";
     
-    fileId = @"456";
+    fileId = @"123";
     
     self.manager = [[DownloadManager alloc]initWithUrl:[NSURL URLWithString:urlStr] andWithFileId:fileId andWithProgress:self.progress];
-    
 
-    
 }
 
 - (void)didReceiveMemoryWarning {
