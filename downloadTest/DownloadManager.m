@@ -32,6 +32,7 @@
 
 @implementation DownloadManager
 
+#pragma mark 单利
 
 #pragma mark 初始化
 - (instancetype)initWithUrl:(NSURL *)url andWithFileId:(NSString*)fileId andWithProgress:(UIProgressView*)progress{
@@ -110,7 +111,6 @@
     if (!_manager) {
         NSURLSessionConfiguration * configuration = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:self.url.absoluteString];
         _manager = [[AFURLSessionManager alloc]initWithSessionConfiguration:configuration];
-        
     }
     return _manager;
 }
